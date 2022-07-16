@@ -39,7 +39,8 @@ public class EmployeeController {
 	 * @throws MicroserviceException
 	 * @throws InvalidUserException
 	 */
-	@CrossOrigin(origins = "http://localhost:4200")
+// 	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "http://pod5-mfpe.s3-website-us-west-2.amazonaws.com")
 	@GetMapping("/viewEmployeeOffers/{id}")
 	public ResponseEntity<?> viewEmployeeOffers(@RequestHeader(name = "Authorization", required = true) String token,
 			@PathVariable("id") int employeeId) throws InvalidUserException, MicroserviceException {
@@ -56,7 +57,8 @@ public class EmployeeController {
 	 * @throws MicroserviceException
 	 * @throws InvalidUserException
 	 */
-	@CrossOrigin(origins = "http://localhost:4200")
+// 	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "http://pod5-mfpe.s3-website-us-west-2.amazonaws.com")
 	@GetMapping("/viewProfile/{id}")
 	public ResponseEntity<Employee> viewProfile(@RequestHeader(name = "Authorization", required = true) String token,
 			@PathVariable("id") int id) throws InvalidUserException, MicroserviceException {
@@ -104,14 +106,16 @@ public class EmployeeController {
 	 * @return
 	 * @throws MicroserviceException
 	 */
-	@CrossOrigin(origins = "http://localhost:4200")
+// 	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "http://pod5-mfpe.s3-website-us-west-2.amazonaws.com")
 	@PostMapping("/likeOffer/{id}")
 	public MessageResponse likeOffer(@RequestHeader("Authorization") String token, @PathVariable("id") int offerId)
 			throws MicroserviceException {
 		return employeeService.likeOffer(token, offerId);
 	}
 
-	@CrossOrigin(origins = "http://localhost:4200")
+// 	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "http://pod5-mfpe.s3-website-us-west-2.amazonaws.com")
 	@GetMapping("/recentlyLiked")
 	public Set<EmployeeOffers> getLikedOffers(@RequestHeader("Authorization") String token)
 			throws InvalidUserException, MicroserviceException {
